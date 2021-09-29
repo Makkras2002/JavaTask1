@@ -4,6 +4,7 @@ import entities.SomeArray;
 import fileOperations.FileExtractor;
 import fileOperations.FileInputer;
 import functions.ArrayFunctions;
+import functions.sortFunctions.ArraySort;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,6 +20,7 @@ public class Main {
         FileExtractor fileExtractor = new FileExtractor();
         ArrayFunctions arrayFunctions = new ArrayFunctions();
         FileInputer fileInputer = new FileInputer();
+        ArraySort arraySort = new ArraySort();
         boolean isRead = false;
         while (signal){
             logger.info("1. Read numbers from file.");
@@ -30,15 +32,12 @@ public class Main {
             logger.info("7. Add number to the source file.");
             logger.info("8. Show array.");
             logger.info("9. Exit.");
+            logger.info("10. Array BubbleSort.");
+            logger.info("11. Array SelectionSort.");
+            logger.info("12. Array InsertionSort.");
             switch (scanner.nextLine()){
                 case "1":{
-//                    try {
-//                        array = fileExtractor.extractNumbersFromFileToArray();
-//                        isRead = true;
-//                    } catch (IOException e) {
-//                        logger.error(e.getMessage());
-//                    }
-                    array = fileExtractor.extractFromFileToArray();
+                    array = fileExtractor.extractFromFileToArray("source.txt");
                     isRead = true;
                     break;
                 }
@@ -90,7 +89,7 @@ public class Main {
                 case "7":{
                     String newFileData = scanner.nextLine();
                     try {
-                        fileInputer.putNumberIntoFile(newFileData);
+                        fileInputer.putNumberIntoFile(newFileData,"source.txt");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -107,6 +106,33 @@ public class Main {
                 }
                 case "9":{
                     return;
+                }
+                case "10":{
+                    if(!isRead){
+                        logger.error("Data wasn't read from file.");
+                        break;
+                    }else {
+                        arraySort.bubbleSort(array);
+                    }
+                    break;
+                }
+                case "11":{
+                    if(!isRead){
+                        logger.error("Data wasn't read from file.");
+                        break;
+                    }else {
+                        arraySort.selectionSort(array);
+                    }
+                    break;
+                }
+                case "12":{
+                    if(!isRead){
+                        logger.error("Data wasn't read from file.");
+                        break;
+                    }else {
+                        arraySort.insertionSort(array);
+                    }
+                    break;
                 }
             }
         }

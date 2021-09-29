@@ -9,9 +9,8 @@ import java.io.IOException;
 
 public class FileInputer {
     private static Logger logger = LogManager.getLogger();
-    private final String FILEPATH = "source.txt";
-    public void putNumberIntoFile(String number) throws IOException {
-        FileWriter fileWriter = new FileWriter(FILEPATH,true);
+    public void putNumberIntoFile(String number,String filepath) throws IOException {
+        FileWriter fileWriter = new FileWriter(filepath,true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         try {
             bufferedWriter.write(number + "\n");

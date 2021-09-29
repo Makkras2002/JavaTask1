@@ -11,15 +11,14 @@ import java.util.List;
 
 public class FileExtractor {
     private static Logger logger = LogManager.getLogger();
-    private final String FILEPATH = "source.txt";
-    public SomeArray extractFromFileToArray(){
+    public SomeArray extractFromFileToArray(String filepath){
         BufferedReader bufferedReader = null;
         int arraySize =0;
         SomeArray array;
         FileReader fileReader = null;
         List<Integer> goodLinesList = new ArrayList<>();
         try {
-            fileReader = new FileReader(FILEPATH);
+            fileReader = new FileReader(filepath);
             bufferedReader = new BufferedReader(fileReader);
             String[] rawDataArray;
             String line = bufferedReader.readLine();
@@ -51,7 +50,7 @@ public class FileExtractor {
             fileReader.close();
             array = new SomeArray(arraySize);
             int tempCounter = 0;
-            fileReader = new FileReader(FILEPATH);
+            fileReader = new FileReader(filepath);
             bufferedReader = new BufferedReader(fileReader);
             line = bufferedReader.readLine();
             int extractorLineCounter = 0;
