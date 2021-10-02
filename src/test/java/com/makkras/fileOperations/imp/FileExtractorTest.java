@@ -1,4 +1,4 @@
-package com.makkras.fileOperations;
+package com.makkras.fileOperations.imp;
 
 import com.makkras.entities.SomeArray;
 import com.makkras.fileOperations.imp.FileExtractor;

@@ -1,4 +1,4 @@
-package com.makkras.functions.sortFunctions;
+package com.makkras.functions.sortFunctions.imp;
 
 import com.makkras.entities.SomeArray;
 import com.makkras.fileOperations.imp.FileExtractor;
