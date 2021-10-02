@@ -1,8 +1,7 @@
-package fileOperations;
+package com.makkras.fileOperations;
 
-import entities.SomeArray;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import com.makkras.entities.SomeArray;
+import com.makkras.fileOperations.imp.FileExtractor;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 

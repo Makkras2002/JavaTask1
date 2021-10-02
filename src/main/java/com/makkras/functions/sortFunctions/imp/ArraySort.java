@@ -1,11 +1,12 @@
-package functions.sortFunctions;
+package com.makkras.functions.sortFunctions.imp;
 
-import entities.SomeArray;
+import com.makkras.entities.SomeArray;
+import com.makkras.functions.sortFunctions.ArraySortInterface;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
-public class ArraySort {
+public class ArraySort implements ArraySortInterface {
     private static Logger logger = LogManager.getLogger();
     public void bubbleSort(SomeArray array){
         boolean hasReplaced = true;

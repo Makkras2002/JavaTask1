@@ -1,12 +1,11 @@
-package functions.sortFunctions;
+package com.makkras.functions.sortFunctions;
 
-import entities.SomeArray;
-import fileOperations.FileExtractor;
+import com.makkras.entities.SomeArray;
+import com.makkras.fileOperations.imp.FileExtractor;
+import com.makkras.functions.sortFunctions.imp.ArraySort;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-
-import static org.testng.Assert.*;
 
 public class ArraySortTest {
     ArraySort arraySort;

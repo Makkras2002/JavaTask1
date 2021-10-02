@@ -1,5 +1,6 @@
-package fileOperations;
+package com.makkras.fileOperations.imp;
 
+import com.makkras.fileOperations.FileInputerInterface;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -7,7 +8,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class FileInputer {
+public class FileInputer implements FileInputerInterface {
     private static Logger logger = LogManager.getLogger();
     public void putNumberIntoFile(String number,String filepath) throws IOException {
         FileWriter fileWriter = new FileWriter(filepath,true);

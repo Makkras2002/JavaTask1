@@ -1,6 +1,9 @@
-package fileOperations;
+package com.makkras.fileOperations.imp;
 
-import entities.SomeArray;
+import com.makkras.entities.SomeArray;
+import com.makkras.fileOperations.DataValidatorInterface;
+import com.makkras.fileOperations.FileExtractorInterface;
+import com.makkras.fileOperations.imp.DataValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.io.BufferedReader;
@@ -9,8 +12,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileExtractor {
+public class FileExtractor implements FileExtractorInterface {
     private static Logger logger = LogManager.getLogger();
+    DataValidatorInterface dataValidator= new DataValidator();
     public SomeArray extractFromFileToArray(String filepath){
         BufferedReader bufferedReader = null;
         int arraySize =0;
@@ -28,7 +32,7 @@ public class FileExtractor {
             while (line != null){
                 rawDataArray = line.split(";");
                 for (String o : rawDataArray){
-                    if(DataValidator.checkIfNumber(o)){
+                    if(dataValidator.checkIfNumber(o)){
                         arraySize++;
                         tempArraySizeIncrease++;
                     }else {

@@ -1,10 +1,12 @@
-package main;
+package com.makkras.main;
 
-import entities.SomeArray;
-import fileOperations.FileExtractor;
-import fileOperations.FileInputer;
-import functions.ArrayFunctions;
-import functions.sortFunctions.ArraySort;
+import com.makkras.entities.SomeArray;
+import com.makkras.fileOperations.DataValidatorInterface;
+import com.makkras.fileOperations.imp.DataValidator;
+import com.makkras.fileOperations.imp.FileExtractor;
+import com.makkras.fileOperations.imp.FileInputer;
+import com.makkras.functions.imp.ArrayFunctions;
+import com.makkras.functions.sortFunctions.imp.ArraySort;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,12 +22,13 @@ public class Main {
         FileExtractor fileExtractor = new FileExtractor();
         ArrayFunctions arrayFunctions = new ArrayFunctions();
         FileInputer fileInputer = new FileInputer();
+        DataValidatorInterface dataValidator = new DataValidator();
         ArraySort arraySort = new ArraySort();
         boolean isRead = false;
         while (signal){
             logger.info("1. Read numbers from file.");
-            logger.info("2. Find max/main elements in the array.");
-            logger.info("3. Divide all negative elements in the array on 2.");
+            logger.info("2. Find max/min elements in the array.");
+            logger.info("3. Divide all negative elements in the array on number.");
             logger.info("4. Count average in the array.");
             logger.info("5. Count elemSum in the array.");
             logger.info("6. Count amount of positive/negative elements in the array.");
@@ -55,7 +58,14 @@ public class Main {
                         logger.error("Data wasn't read from file.");
                         break;
                     }else {
-                        arrayFunctions.changeElementsByTask(array);
+                        logger.info("Enter number to divide negative elements on.");
+                        String number = scanner.nextLine();
+                        if(dataValidator.checkIfNumber(number)){
+                            arrayFunctions.changeElementsByTask(array,Float.parseFloat(number));
+                        }else {
+                            logger.error("Invalid data was entered.");
+                            break;
+                        }
                     }
                     break;
                 }
@@ -89,7 +99,7 @@ public class Main {
                 case "7":{
                     String newFileData = scanner.nextLine();
                     try {
-                        fileInputer.putNumberIntoFile(newFileData,"source.txt");
+                        fileInputer.putNumberIntoFile(newFileData, "source.txt");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

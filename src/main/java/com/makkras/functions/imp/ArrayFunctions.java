@@ -1,8 +1,9 @@
-package functions;
+package com.makkras.functions.imp;
 
-import entities.SomeArray;
+import com.makkras.entities.SomeArray;
+import com.makkras.functions.ArrayFunctionsInterface;
 
-public class ArrayFunctions {
+public class ArrayFunctions implements ArrayFunctionsInterface {
     public String findMaxMinElements(SomeArray array){
         float min = array.getNumber(0);
         float max = array.getNumber(0);
@@ -19,11 +20,11 @@ public class ArrayFunctions {
         String result = "MAX: "+ max +"; MIN: "+ min;
         return result;
     }
-    public void changeElementsByTask(SomeArray array){
+    public void changeElementsByTask(SomeArray array,Float number){
         int counter = 0;
         while(counter< array.getLength()){
             if(array.getNumber(counter) <0){
-                array.setNumber(counter,array.getNumber(counter)/2);
+                array.setNumber(counter,array.getNumber(counter)/number);
             }
             counter++;
         }

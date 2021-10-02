@@ -1,4 +1,4 @@
-package entities;
+package com.makkras.entities;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
