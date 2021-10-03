@@ -1,6 +1,6 @@
 package com.makkras.fileOperations;
 
-import com.makkras.exeptions.FileInteractionException;
+import com.makkras.exceptions.FileInteractionException;
 
 
 public interface FileInputerInterface {

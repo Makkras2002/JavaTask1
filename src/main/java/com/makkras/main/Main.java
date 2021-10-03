@@ -1,7 +1,7 @@
 package com.makkras.main;
 
 import com.makkras.entities.SomeArray;
-import com.makkras.exeptions.FileInteractionException;
+import com.makkras.exceptions.FileInteractionException;
 import com.makkras.fileOperations.DataValidatorInterface;
 import com.makkras.fileOperations.imp.DataValidator;
 import com.makkras.fileOperations.imp.FileExtractor;
@@ -11,7 +11,6 @@ import com.makkras.functions.sortFunctions.imp.ArraySort;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {

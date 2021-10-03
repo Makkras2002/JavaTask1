@@ -1,7 +1,7 @@
 package com.makkras.fileOperations.imp;
 
 import com.makkras.entities.SomeArray;
-import com.makkras.exeptions.FileInteractionException;
+import com.makkras.exceptions.FileInteractionException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.BeforeMethod;

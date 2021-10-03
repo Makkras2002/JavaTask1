@@ -1,7 +1,7 @@
 package com.makkras.functions.sortFunctions.imp;
 
 import com.makkras.entities.SomeArray;
-import com.makkras.exeptions.FileInteractionException;
+import com.makkras.exceptions.FileInteractionException;
 import com.makkras.fileOperations.imp.FileExtractor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

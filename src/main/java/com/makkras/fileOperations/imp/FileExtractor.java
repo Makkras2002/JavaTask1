@@ -1,7 +1,7 @@
 package com.makkras.fileOperations.imp;
 
 import com.makkras.entities.SomeArray;
-import com.makkras.exeptions.FileInteractionException;
+import com.makkras.exceptions.FileInteractionException;
 import com.makkras.fileOperations.DataValidatorInterface;
 import com.makkras.fileOperations.FileExtractorInterface;
 import org.apache.logging.log4j.LogManager;
