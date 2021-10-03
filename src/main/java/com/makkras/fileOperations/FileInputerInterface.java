@@ -1,7 +1,8 @@
 package com.makkras.fileOperations;
 
-import java.io.IOException;
+import com.makkras.exeptions.FileInteractionException;
+
 
 public interface FileInputerInterface {
-    public void putNumberIntoFile(String number,String filepath)throws IOException;
+    void putNumberIntoFile(String number,String filepath)throws FileInteractionException;
 }

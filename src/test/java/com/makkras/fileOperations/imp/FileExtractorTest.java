@@ -1,15 +1,18 @@
 package com.makkras.fileOperations.imp;
 
 import com.makkras.entities.SomeArray;
-import com.makkras.fileOperations.imp.FileExtractor;
+import com.makkras.exeptions.FileInteractionException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
 public class FileExtractorTest {
-    SomeArray array;
-    FileExtractor extractor;
+    public SomeArray array;
+    public FileExtractor extractor;
+    private static Logger logger = LogManager.getLogger();
     @BeforeMethod
     public void setUp() {
         array = new SomeArray();
@@ -19,12 +22,20 @@ public class FileExtractorTest {
     @Test(timeOut = 400)
     public void testExtractFromFileToArrayTime() {
         for(int i  =0 ; i<50; i++){
-            array = extractor.extractFromFileToArray("testSource.txt");
+            try {
+                array = extractor.extractFromFileToArray("testSource.txt");
+            } catch (FileInteractionException e) {
+                logger.error(e.getMessage());
+            }
         }
     }
     @Test
     public void testExtractFromFileToArrayCorrectness() {
-        array = extractor.extractFromFileToArray("testSource.txt");
+        try {
+            array = extractor.extractFromFileToArray("testSource.txt");
+        } catch (FileInteractionException e) {
+            logger.error(e.getMessage());
+        }
         assertEquals(array.getLength(),7);
     }
 }

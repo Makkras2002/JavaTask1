@@ -1,9 +1,9 @@
 package com.makkras.fileOperations.imp;
 
 import com.makkras.entities.SomeArray;
+import com.makkras.exeptions.FileInteractionException;
 import com.makkras.fileOperations.DataValidatorInterface;
 import com.makkras.fileOperations.FileExtractorInterface;
-import com.makkras.fileOperations.imp.DataValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.io.BufferedReader;
@@ -12,10 +12,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileExtractor implements FileExtractorInterface {
+public class FileExtractor implements FileExtractorInterface{
     private static Logger logger = LogManager.getLogger();
     DataValidatorInterface dataValidator= new DataValidator();
-    public SomeArray extractFromFileToArray(String filepath){
+    public SomeArray extractFromFileToArray(String filepath) throws FileInteractionException{
         BufferedReader bufferedReader = null;
         int arraySize =0;
         SomeArray array;
@@ -72,18 +72,11 @@ public class FileExtractor implements FileExtractorInterface {
                 line = bufferedReader.readLine();
                 extractorLineCounter++;
             }
+            fileReader.close();
+            bufferedReader.close();
             return array;
         } catch (IOException e) {
-            logger.error(e.getMessage());
+            throw new FileInteractionException("File interaction error.",e.getCause());
         }
-        finally {
-            try {
-                fileReader.close();
-                bufferedReader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return new SomeArray();
     }
 }

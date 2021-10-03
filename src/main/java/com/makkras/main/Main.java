@@ -1,6 +1,7 @@
 package com.makkras.main;
 
 import com.makkras.entities.SomeArray;
+import com.makkras.exeptions.FileInteractionException;
 import com.makkras.fileOperations.DataValidatorInterface;
 import com.makkras.fileOperations.imp.DataValidator;
 import com.makkras.fileOperations.imp.FileExtractor;
@@ -38,9 +39,19 @@ public class Main {
             logger.info("10. Array BubbleSort.");
             logger.info("11. Array SelectionSort.");
             logger.info("12. Array InsertionSort.");
+            logger.info("13. Find max/min elements in the array WITH STREAM.");
+            logger.info("14. Divide all negative elements in the array on number WITH STREAM.");
+            logger.info("15. Count average in the array WITH STREAM.");
+            logger.info("16. Count elemSum in the array WITH STREAM.");
+            logger.info("17. Count amount of positive/negative elements in the array WITH STREAM.");
+            logger.info("18. Array Sort WITH STREAM.");
             switch (scanner.nextLine()){
                 case "1":{
-                    array = fileExtractor.extractFromFileToArray("source.txt");
+                    try {
+                        array = fileExtractor.extractFromFileToArray("source.txt");
+                    } catch (FileInteractionException e) {
+                        logger.error(e.getMessage());
+                    }
                     isRead = true;
                     break;
                 }
@@ -61,7 +72,11 @@ public class Main {
                         logger.info("Enter number to divide negative elements on.");
                         String number = scanner.nextLine();
                         if(dataValidator.checkIfNumber(number)){
-                            arrayFunctions.changeElementsByTask(array,Float.parseFloat(number));
+                            if(Double.parseDouble(number) == 0){
+                                logger.error("Invalid data was entered.");
+                            }else {
+                                arrayFunctions.changeElementsByTask(array,Double.parseDouble(number));
+                            }
                         }else {
                             logger.error("Invalid data was entered.");
                             break;
@@ -100,8 +115,8 @@ public class Main {
                     String newFileData = scanner.nextLine();
                     try {
                         fileInputer.putNumberIntoFile(newFileData, "source.txt");
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    } catch (FileInteractionException e) {
+                        logger.error(e.getMessage());
                     }
                     break;
                 }
@@ -141,6 +156,71 @@ public class Main {
                         break;
                     }else {
                         arraySort.insertionSort(array);
+                    }
+                    break;
+                }
+                case "13":{
+                    if(!isRead){
+                        logger.error("Data wasn't read from file.");
+                        break;
+                    }else {
+                        logger.info(arrayFunctions.findMaxMinElementsWithStream(array));
+                    }
+                    break;
+                }
+                case "14":{
+                    if(!isRead){
+                        logger.error("Data wasn't read from file.");
+                        break;
+                    }else {
+                        logger.info("Enter number to divide negative elements on.");
+                        String number = scanner.nextLine();
+                        if(dataValidator.checkIfNumber(number)){
+                            if(Double.parseDouble(number) == 0){
+                                logger.error("Invalid data was entered.");
+                            }else {
+                                arrayFunctions.changeElementsByTaskWithStream(array,Double.parseDouble(number));
+                            }
+                        }else {
+                            logger.error("Invalid data was entered.");
+                            break;
+                        }
+                    }
+                    break;
+                }
+                case "15":{
+                    if(!isRead){
+                        logger.error("Data wasn't read from file.");
+                        break;
+                    }else {
+                        logger.info("AVERAGE: "+ arrayFunctions.countAverageWithStream(array));
+                    }
+                    break;
+                }
+                case "16":{
+                    if(!isRead){
+                        logger.error("Data wasn't read from file.");
+                        break;
+                    }else {
+                        logger.info("SUM: "+ arrayFunctions.countElemSumWithStream(array));
+                    }
+                    break;
+                }
+                case "17":{
+                    if(!isRead){
+                        logger.error("Data wasn't read from file.");
+                        break;
+                    }else {
+                        logger.info(arrayFunctions.countPositiveNegativeAmountWithStream(array));
+                    }
+                    break;
+                }
+                case "18":{
+                    if(!isRead){
+                        logger.error("Data wasn't read from file.");
+                        break;
+                    }else {
+                        arraySort.arraySortWithStream(array);
                     }
                     break;
                 }

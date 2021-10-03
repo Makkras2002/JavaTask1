@@ -3,7 +3,8 @@ package com.makkras.functions.sortFunctions;
 import com.makkras.entities.SomeArray;
 
 public interface ArraySortInterface {
-    public void bubbleSort(SomeArray array);
-    public void selectionSort(SomeArray array);
-    public void insertionSort(SomeArray array);
+    void bubbleSort(SomeArray array);
+    void selectionSort(SomeArray array);
+    void insertionSort(SomeArray array);
+    void arraySortWithStream(SomeArray array);
 }

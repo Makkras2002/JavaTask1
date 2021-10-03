@@ -3,9 +3,14 @@ package com.makkras.functions;
 import com.makkras.entities.SomeArray;
 
 public interface ArrayFunctionsInterface {
-    public String findMaxMinElements(SomeArray array);
-    public void changeElementsByTask(SomeArray array,Float number);
-    public float countAverage(SomeArray array);
-    public float countElemSum(SomeArray array);
-    public String countPositiveNegativeAmount(SomeArray array);
+    String findMaxMinElements(SomeArray array);
+    void changeElementsByTask(SomeArray array,double number);
+    double countAverage(SomeArray array);
+    double countElemSum(SomeArray array);
+    String countPositiveNegativeAmount(SomeArray array);
+    String findMaxMinElementsWithStream(SomeArray array);
+    void changeElementsByTaskWithStream(SomeArray array,double number);
+    double countAverageWithStream(SomeArray array);
+    double countElemSumWithStream(SomeArray array);
+    String countPositiveNegativeAmountWithStream(SomeArray array);
 }

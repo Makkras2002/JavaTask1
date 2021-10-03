@@ -5,6 +5,9 @@ import com.makkras.functions.sortFunctions.ArraySortInterface;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Arrays;
+import java.util.stream.DoubleStream;
+
 
 public class ArraySort implements ArraySortInterface {
     private static Logger logger = LogManager.getLogger();
@@ -16,7 +19,7 @@ public class ArraySort implements ArraySortInterface {
             counter = 0;
             while(counter<array.getLength()-1){
                 if(array.getNumber(counter)>array.getNumber(counter+1)){
-                    float replacer = array.getNumber(counter);
+                    double replacer = array.getNumber(counter);
                     array.setNumber(counter,array.getNumber(counter+1));
                     array.setNumber(counter+1,replacer);
                     hasReplaced = true;
@@ -33,14 +36,14 @@ public class ArraySort implements ArraySortInterface {
                     minInd = i;
                 }
             }
-            float replacer = array.getNumber(left);
+            double replacer = array.getNumber(left);
             array.setNumber(left,array.getNumber(minInd));
             array.setNumber(minInd,replacer);
         }
     }
     public void insertionSort(SomeArray array){
         for (int left = 0; left < array.getLength(); left++) {
-            float value = array.getNumber(left);
+            double value = array.getNumber(left);
             int i = left - 1;
             for (; i >= 0; i--) {
                 if (value < array.getNumber(i)) {
@@ -50,6 +53,16 @@ public class ArraySort implements ArraySortInterface {
                 }
             }
             array.setNumber(i+1,value);
+        }
+    }
+    public void arraySortWithStream(SomeArray array){
+        double[] arrayCopy = array.getArrayCopy();
+        DoubleStream doubleStream = Arrays.stream(arrayCopy);
+        arrayCopy = doubleStream.sorted().toArray();
+        int tempCounter =0;
+        while (tempCounter<arrayCopy.length){
+            array.setNumber(tempCounter,arrayCopy[tempCounter]);
+            tempCounter++;
         }
     }
 }
