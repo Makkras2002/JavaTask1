@@ -1,4 +1,4 @@
-package com.makkras.fileOperations;
+package com.makkras.fileOperation;
 
 public interface DataValidatorInterface {
     boolean checkIfNumber(String string);

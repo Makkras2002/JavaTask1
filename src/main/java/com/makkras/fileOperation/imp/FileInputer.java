@@ -1,7 +1,7 @@
-package com.makkras.fileOperations.imp;
+package com.makkras.fileOperation.imp;
 
-import com.makkras.exceptions.FileInteractionException;
-import com.makkras.fileOperations.FileInputerInterface;
+import com.makkras.exception.FileInteractionException;
+import com.makkras.fileOperation.FileInputerInterface;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

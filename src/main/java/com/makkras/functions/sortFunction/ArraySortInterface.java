@@ -1,6 +1,6 @@
-package com.makkras.functions.sortFunctions;
+package com.makkras.functions.sortFunction;
 
-import com.makkras.entities.SomeArray;
+import com.makkras.entity.SomeArray;
 
 public interface ArraySortInterface {
     void bubbleSort(SomeArray array);

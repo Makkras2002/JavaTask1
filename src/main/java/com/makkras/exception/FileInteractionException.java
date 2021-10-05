@@ -1,4 +1,4 @@
-package com.makkras.exceptions;
+package com.makkras.exception;
 
 public class FileInteractionException extends Exception{
     public FileInteractionException(String message){

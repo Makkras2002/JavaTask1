@@ -1,13 +1,13 @@
 package com.makkras.main;
 
-import com.makkras.entities.SomeArray;
-import com.makkras.exceptions.FileInteractionException;
-import com.makkras.fileOperations.DataValidatorInterface;
-import com.makkras.fileOperations.imp.DataValidator;
-import com.makkras.fileOperations.imp.FileExtractor;
-import com.makkras.fileOperations.imp.FileInputer;
+import com.makkras.entity.SomeArray;
+import com.makkras.exception.FileInteractionException;
+import com.makkras.fileOperation.DataValidatorInterface;
+import com.makkras.fileOperation.imp.DataValidator;
+import com.makkras.fileOperation.imp.FileExtractor;
+import com.makkras.fileOperation.imp.FileInputer;
 import com.makkras.functions.imp.ArrayFunctions;
-import com.makkras.functions.sortFunctions.imp.ArraySort;
+import com.makkras.functions.sortFunction.imp.ArraySort;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

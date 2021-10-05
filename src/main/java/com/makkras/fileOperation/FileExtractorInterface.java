@@ -1,7 +1,7 @@
-package com.makkras.fileOperations;
+package com.makkras.fileOperation;
 
-import com.makkras.entities.SomeArray;
-import com.makkras.exceptions.FileInteractionException;
+import com.makkras.entity.SomeArray;
+import com.makkras.exception.FileInteractionException;
 
 public interface FileExtractorInterface {
     SomeArray extractFromFileToArray(String filepath) throws FileInteractionException;

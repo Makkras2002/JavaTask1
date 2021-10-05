@@ -1,6 +1,6 @@
 package com.makkras.functions.imp;
 
-import com.makkras.entities.SomeArray;
+import com.makkras.entity.SomeArray;
 import com.makkras.functions.ArrayFunctionsInterface;
 import java.util.Arrays;
 import java.util.DoubleSummaryStatistics;

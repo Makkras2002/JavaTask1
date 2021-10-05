@@ -1,6 +1,6 @@
 package com.makkras.functions;
 
-import com.makkras.entities.SomeArray;
+import com.makkras.entity.SomeArray;
 
 public interface ArrayFunctionsInterface {
     String findMaxMinElements(SomeArray array);

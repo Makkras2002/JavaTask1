@@ -1,6 +1,6 @@
-package com.makkras.fileOperations.imp;
+package com.makkras.fileOperation.imp;
 
-import com.makkras.fileOperations.DataValidatorInterface;
+import com.makkras.fileOperation.DataValidatorInterface;
 
 public class DataValidator implements DataValidatorInterface {
 private final static String pattern = "-?\\d+(\\.\\d+)?";
