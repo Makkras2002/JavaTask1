@@ -36,4 +36,17 @@ public class SomeArray {
                 "array=" + Arrays.toString(array) +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SomeArray someArray = (SomeArray) o;
+        return Arrays.equals(array, someArray.array);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(array);
+    }
 }
