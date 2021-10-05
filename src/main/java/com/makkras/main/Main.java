@@ -2,9 +2,10 @@ package com.makkras.main;
 
 import com.makkras.entity.SomeArray;
 import com.makkras.exception.FileInteractionException;
+import com.makkras.fileOperation.imp.DataReaderFromFile;
 import com.makkras.fileOperation.DataValidatorInterface;
+import com.makkras.parser.imp.DataParser;
 import com.makkras.fileOperation.imp.DataValidator;
-import com.makkras.fileOperation.imp.FileExtractor;
 import com.makkras.fileOperation.imp.FileInputer;
 import com.makkras.function.imp.ArrayFunctions;
 import com.makkras.function.sortFunction.imp.ArraySort;
@@ -19,11 +20,12 @@ public class Main {
         boolean signal = true;
         Scanner scanner = new Scanner(System.in);
         SomeArray array =new SomeArray();
-        FileExtractor fileExtractor = new FileExtractor();
+        DataParser parser = new DataParser();
         ArrayFunctions arrayFunctions = new ArrayFunctions();
         FileInputer fileInputer = new FileInputer();
         DataValidatorInterface dataValidator = new DataValidator();
         ArraySort arraySort = new ArraySort();
+        DataReaderFromFile dataReaderFromFile = new DataReaderFromFile();
         boolean isRead = false;
         while (signal){
             logger.info("1. Read numbers from file.");
@@ -47,7 +49,7 @@ public class Main {
             switch (scanner.nextLine()){
                 case "1":{
                     try {
-                        array = fileExtractor.extractFromFileToArray("source.txt");
+                        array = parser.extractToArray(dataReaderFromFile.readDataFromFileIntoStringList("source.txt"));
                     } catch (FileInteractionException e) {
                         logger.error(e.getMessage());
                     }
