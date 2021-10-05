@@ -1,62 +1,52 @@
-package com.makkras.function.imp;
+package com.makkras.survice.impl;
 
 import com.makkras.entity.SomeArray;
-import com.makkras.function.ArrayFunctionsInterface;
+import com.makkras.survice.ArrayMath;
 import java.util.Arrays;
 import java.util.DoubleSummaryStatistics;
+import java.util.OptionalDouble;
 import java.util.stream.DoubleStream;
 
-public class ArrayFunctions implements ArrayFunctionsInterface {
-    public String findMaxMinElements(SomeArray array){
-        double min = array.getNumber(0);
+public class ArrayMathFunc implements ArrayMath {
+    public double findMaxElement(SomeArray array){
         double max = array.getNumber(0);
         int counter =0;
         while (counter< array.getLength()){
-            if(min > array.getNumber(counter)){
-                min = array.getNumber(counter);
-            }
             if(max < array.getNumber(counter)){
                 max = array.getNumber(counter);
             }
             counter++;
         }
-        String result = "MAX: "+ max +"; MIN: "+ min;
-        return result;
+        return max;
     }
-    public String findMaxMinElementsWithStream(SomeArray array){
+    public double findMinElement(SomeArray array){
+        double min = array.getNumber(0);
+        int counter =0;
+        while (counter< array.getLength()){
+            if(min > array.getNumber(counter)){
+                min = array.getNumber(counter);
+            }
+            counter++;
+        }
+        return min;
+    }
+    public OptionalDouble findMaxElementWithStream(SomeArray array){
         double[] arrayCopy = array.getArrayCopy();
-        DoubleSummaryStatistics intStat = Arrays.stream(arrayCopy).collect(DoubleSummaryStatistics::new,
-                DoubleSummaryStatistics::accept,
-                DoubleSummaryStatistics::combine);
-        double min = intStat.getMin();
-        double max = intStat.getMax();
-        String result = "MAX: "+ max +"; MIN: "+ min;
-        return result;
+        DoubleStream doubleStream = Arrays.stream(arrayCopy);
+        OptionalDouble max = doubleStream.max();
+        return max;
+    }
+    public OptionalDouble findMinElementWithStream(SomeArray array){
+        double[] arrayCopy = array.getArrayCopy();
+        DoubleStream doubleStream = Arrays.stream(arrayCopy);
+        OptionalDouble min = doubleStream.min();
+        return min;
     }
     public void changeElementsByTask(SomeArray array,double number){
         int counter = 0;
         while(counter< array.getLength()){
             if(array.getNumber(counter) <0){
                 array.setNumber(counter,array.getNumber(counter)/number);
-            }
-            counter++;
-        }
-    }
-    public void changeElementsByTaskWithStream(SomeArray array,double number){
-        double[] arrayCopy = array.getArrayCopy();
-        int counter = 0;
-        while(counter< arrayCopy.length){
-            if(arrayCopy[counter] <0){
-                arrayCopy[counter]/=number;
-            }
-            counter++;
-        }
-        DoubleStream doubleStream = Arrays.stream(arrayCopy);
-        double[] tempArray =doubleStream.toArray();
-        counter = 0;
-        while(counter< array.getLength()){
-            if(array.getNumber(counter) <0){
-                array.setNumber(counter,tempArray[counter]);
             }
             counter++;
         }
@@ -93,28 +83,38 @@ public class ArrayFunctions implements ArrayFunctionsInterface {
                 DoubleSummaryStatistics::combine);
         return intStat.getSum();
     }
-    public String countPositiveNegativeAmount(SomeArray array){
-        float posAmount = 0;
-        float negAmount = 0;
+    public int countPositiveAmount(SomeArray array){
+        int posAmount = 0;
+        int counter =0;
+        while (counter< array.getLength()){
+            if(array.getNumber(counter)> 0){
+                posAmount++;
+            }
+            counter++;
+        }
+        return posAmount;
+    }
+    public int countNegativeAmount(SomeArray array){
+        int negAmount = 0;
         int counter =0;
         while (counter< array.getLength()){
             if(array.getNumber(counter) < 0){
                 negAmount++;
             }
-            else if(array.getNumber(counter)> 0){
-                posAmount++;
-            }
             counter++;
         }
-        String result = "POS amount:  "+ posAmount +"; NEG amount: "+ negAmount;
-        return result;
+        return negAmount;
     }
-    public String countPositiveNegativeAmountWithStream(SomeArray array){
+    public long countPositiveAmountWithStream(SomeArray array){
+        double[] arrayCopy = array.getArrayCopy();
+        DoubleStream doubleStream = Arrays.stream(arrayCopy);
+        long counterOfPositives = doubleStream.filter(n -> n> 0 ).count();
+        return counterOfPositives;
+    }
+    public long countNegativeAmountWithStream(SomeArray array){
         double[] arrayCopy = array.getArrayCopy();
         DoubleStream doubleStream = Arrays.stream(arrayCopy);
         long counterOfNegatives = doubleStream.filter(n -> n< 0 ).count();
-        long counterOfPositives = array.getLength() - counterOfNegatives;
-        String result = "POS amount:  "+ counterOfPositives +"; NEG amount: "+ counterOfNegatives;
-        return result;
+        return counterOfNegatives;
     }
 }

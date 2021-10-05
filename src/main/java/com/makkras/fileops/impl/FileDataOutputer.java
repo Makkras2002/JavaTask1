@@ -1,7 +1,6 @@
-package com.makkras.fileOperation.imp;
+package com.makkras.fileops.impl;
 
 import com.makkras.exception.FileInteractionException;
-import com.makkras.fileOperation.FileInputerInterface;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -9,18 +8,11 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class FileInputer implements FileInputerInterface {
-    private static Logger logger = LogManager.getLogger();
+public class FileDataOutputer implements com.makkras.fileops.FileOutputer {
     public void putNumberIntoFile(String number,String filepath) throws FileInteractionException {
-        FileWriter fileWriter = null;
-        BufferedWriter bufferedWriter = null;
-        try {
-            fileWriter = new FileWriter(filepath,true);
-            bufferedWriter = new BufferedWriter(fileWriter);
+        try (FileWriter fileWriter = new FileWriter(filepath,true);BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)){
             bufferedWriter.write(number + "\n");
             bufferedWriter.flush();
-            bufferedWriter.close();
-            fileWriter.close();
         } catch (IOException e) {
             throw new FileInteractionException("File interaction error.",e.getCause());
         }

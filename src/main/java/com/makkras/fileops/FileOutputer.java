@@ -1,8 +1,8 @@
-package com.makkras.fileOperation;
+package com.makkras.fileops;
 
 import com.makkras.exception.FileInteractionException;
 
 
-public interface FileInputerInterface {
+public interface FileOutputer {
     void putNumberIntoFile(String number,String filepath)throws FileInteractionException;
 }

@@ -1,20 +1,19 @@
-package com.makkras.parser.imp;
+package com.makkras.parser.impl;
 
 import com.makkras.entity.SomeArray;
-import com.makkras.exception.FileInteractionException;
-import com.makkras.fileOperation.DataValidatorInterface;
-import com.makkras.parser.DataParserInterface;
-import com.makkras.fileOperation.imp.DataValidator;
+import com.makkras.validator.DataValidator;
+import com.makkras.validator.impl.CustomValidator;
+import com.makkras.parser.DataParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataParser implements DataParserInterface {
+public class CustomDataParser implements DataParser {
     private static Logger logger = LogManager.getLogger();
-    DataValidatorInterface dataValidator= new DataValidator();
     public SomeArray extractToArray(List<String> list){
+        DataValidator dataValidator= new CustomValidator();
         int arraySize =0;
         SomeArray array;
         List<Integer> goodLinesList = new ArrayList<>();

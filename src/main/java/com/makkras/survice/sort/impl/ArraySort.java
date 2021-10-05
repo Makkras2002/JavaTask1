@@ -1,16 +1,13 @@
-package com.makkras.function.sortFunction.imp;
+package com.makkras.survice.sort.impl;
 
 import com.makkras.entity.SomeArray;
-import com.makkras.function.sortFunction.ArraySortInterface;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import com.makkras.survice.sort.CustomSort;
 
 import java.util.Arrays;
 import java.util.stream.DoubleStream;
 
 
-public class ArraySort implements ArraySortInterface {
-    private static Logger logger = LogManager.getLogger();
+public class ArraySort implements CustomSort {
     public void bubbleSort(SomeArray array){
         boolean hasReplaced = true;
         int counter = 0;
@@ -45,12 +42,13 @@ public class ArraySort implements ArraySortInterface {
         for (int left = 0; left < array.getLength(); left++) {
             double value = array.getNumber(left);
             int i = left - 1;
-            for (; i >= 0; i--) {
+            while (i >= 0){
                 if (value < array.getNumber(i)) {
                     array.setNumber(i+1,array.getNumber(i));
                 } else {
                     break;
                 }
+                i--;
             }
             array.setNumber(i+1,value);
         }
