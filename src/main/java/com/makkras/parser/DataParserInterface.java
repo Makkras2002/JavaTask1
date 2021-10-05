@@ -6,5 +6,5 @@ import com.makkras.exception.FileInteractionException;
 import java.util.List;
 
 public interface DataParserInterface {
-    SomeArray extractToArray(List<String> list) throws FileInteractionException;
+    SomeArray extractToArray(List<String> list);
 }

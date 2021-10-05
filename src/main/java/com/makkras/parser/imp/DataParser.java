@@ -14,7 +14,7 @@ import java.util.List;
 public class DataParser implements DataParserInterface {
     private static Logger logger = LogManager.getLogger();
     DataValidatorInterface dataValidator= new DataValidator();
-    public SomeArray extractToArray(List<String> list) throws FileInteractionException{
+    public SomeArray extractToArray(List<String> list){
         int arraySize =0;
         SomeArray array;
         List<Integer> goodLinesList = new ArrayList<>();
