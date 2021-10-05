@@ -1,4 +1,4 @@
-package com.makkras.functions;
+package com.makkras.function;
 
 import com.makkras.entity.SomeArray;
 

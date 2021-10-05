@@ -1,4 +1,4 @@
-package com.makkras.functions.sortFunction;
+package com.makkras.function.sortFunction;
 
 import com.makkras.entity.SomeArray;
 

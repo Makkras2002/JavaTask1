@@ -1,7 +1,7 @@
-package com.makkras.functions.sortFunction.imp;
+package com.makkras.function.sortFunction.imp;
 
 import com.makkras.entity.SomeArray;
-import com.makkras.functions.sortFunction.ArraySortInterface;
+import com.makkras.function.sortFunction.ArraySortInterface;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

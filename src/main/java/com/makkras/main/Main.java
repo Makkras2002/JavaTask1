@@ -6,8 +6,8 @@ import com.makkras.fileOperation.DataValidatorInterface;
 import com.makkras.fileOperation.imp.DataValidator;
 import com.makkras.fileOperation.imp.FileExtractor;
 import com.makkras.fileOperation.imp.FileInputer;
-import com.makkras.functions.imp.ArrayFunctions;
-import com.makkras.functions.sortFunction.imp.ArraySort;
+import com.makkras.function.imp.ArrayFunctions;
+import com.makkras.function.sortFunction.imp.ArraySort;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

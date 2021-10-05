@@ -1,4 +1,4 @@
-package com.makkras.functions.sortFunction.imp;
+package com.makkras.function.sortFunction.imp;
 
 import com.makkras.entity.SomeArray;
 import com.makkras.exception.FileInteractionException;

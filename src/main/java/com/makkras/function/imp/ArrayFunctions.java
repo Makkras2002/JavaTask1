@@ -1,7 +1,7 @@
-package com.makkras.functions.imp;
+package com.makkras.function.imp;
 
 import com.makkras.entity.SomeArray;
-import com.makkras.functions.ArrayFunctionsInterface;
+import com.makkras.function.ArrayFunctionsInterface;
 import java.util.Arrays;
 import java.util.DoubleSummaryStatistics;
 import java.util.stream.DoubleStream;
