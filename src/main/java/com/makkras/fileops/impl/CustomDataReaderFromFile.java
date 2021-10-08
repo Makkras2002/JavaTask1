@@ -19,7 +19,7 @@ public class CustomDataReaderFromFile implements com.makkras.fileops.DataReaderF
             }
             return list;
         } catch (IOException e) {
-            throw new FileInteractionException("File interaction error.",e.getCause());
+            throw new FileInteractionException("File interaction error: " + e.getMessage(),e.getCause());
         }
     }
 }

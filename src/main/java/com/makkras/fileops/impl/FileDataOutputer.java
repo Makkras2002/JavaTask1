@@ -14,7 +14,7 @@ public class FileDataOutputer implements com.makkras.fileops.FileOutputer {
             bufferedWriter.write(number + "\n");
             bufferedWriter.flush();
         } catch (IOException e) {
-            throw new FileInteractionException("File interaction error.",e.getCause());
+            throw new FileInteractionException("File interaction error."+ e.getMessage(),e.getCause());
         }
     }
 }

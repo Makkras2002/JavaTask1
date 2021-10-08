@@ -48,7 +48,7 @@ public class Main {
             switch (scanner.nextLine()){
                 case "1":{
                     try {
-                        array = parser.extractToArray(dataReaderFromFile.readDataFromFileIntoStringList("filesfoulder/source.txt"));
+                        array = parser.extractToArray(dataReaderFromFile.readDataFromFileIntoStringList("xfilesfoulder/source.txt"));
                     } catch (FileInteractionException e) {
                         logger.error(e.getMessage());
                     }
