@@ -1,9 +1,7 @@
 package com.makkras.survice.impl;
 
-import com.makkras.entity.SomeArray;
+import com.makkras.entity.impl.SomeArray;
 import com.makkras.survice.ArrayMath;
-import com.makkras.survice.sort.CustomSort;
-import com.makkras.survice.sort.impl.ArraySort;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 

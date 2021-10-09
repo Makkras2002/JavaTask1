@@ -1,6 +1,6 @@
 package com.makkras.survice.impl;
 
-import com.makkras.entity.SomeArray;
+import com.makkras.entity.impl.SomeArray;
 import com.makkras.survice.ArrayMath;
 import java.util.Arrays;
 import java.util.DoubleSummaryStatistics;

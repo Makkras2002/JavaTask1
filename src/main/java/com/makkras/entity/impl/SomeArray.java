@@ -1,8 +1,10 @@
-package com.makkras.entity;
+package com.makkras.entity.impl;
+
+import com.makkras.entity.CustomArray;
 
 import java.util.Arrays;
 
-public class SomeArray {
+public class SomeArray implements CustomArray {
     private double[] array;
     public SomeArray(int size){
         array = new double[size];

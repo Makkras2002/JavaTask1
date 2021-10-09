@@ -1,6 +1,6 @@
 package com.makkras.parser.impl;
 
-import com.makkras.entity.SomeArray;
+import com.makkras.entity.impl.SomeArray;
 import com.makkras.exception.FileInteractionException;
 import com.makkras.fileops.DataReaderFromFile;
 import com.makkras.fileops.impl.CustomDataReaderFromFile;

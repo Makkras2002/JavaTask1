@@ -1,6 +1,6 @@
 package com.makkras.parser.impl;
 
-import com.makkras.entity.SomeArray;
+import com.makkras.entity.impl.SomeArray;
 import com.makkras.validator.DataValidator;
 import com.makkras.validator.impl.CustomValidator;
 import com.makkras.parser.DataParser;

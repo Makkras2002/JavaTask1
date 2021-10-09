@@ -1,6 +1,6 @@
 package com.makkras.main;
 
-import com.makkras.entity.SomeArray;
+import com.makkras.entity.impl.SomeArray;
 import com.makkras.exception.FileInteractionException;
 import com.makkras.fileops.impl.CustomDataReaderFromFile;
 import com.makkras.validator.DataValidator;

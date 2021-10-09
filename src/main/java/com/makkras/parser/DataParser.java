@@ -1,6 +1,6 @@
 package com.makkras.parser;
 
-import com.makkras.entity.SomeArray;
+import com.makkras.entity.impl.SomeArray;
 
 import java.util.List;
 

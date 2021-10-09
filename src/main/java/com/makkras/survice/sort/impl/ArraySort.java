@@ -1,6 +1,6 @@
 package com.makkras.survice.sort.impl;
 
-import com.makkras.entity.SomeArray;
+import com.makkras.entity.impl.SomeArray;
 import com.makkras.survice.sort.CustomSort;
 
 import java.util.Arrays;
