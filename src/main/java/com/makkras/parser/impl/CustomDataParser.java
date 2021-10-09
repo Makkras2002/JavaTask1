@@ -26,8 +26,9 @@ public class CustomDataParser implements DataParser {
         while (tempCounter1<list.size()){
             line = list.get(tempCounter1);
             rawDataArray = line.split(";");
-            for (String o : rawDataArray){
-                if(dataValidator.checkIfNumber(o)){
+            int rawC =0;
+            while (rawC < rawDataArray.length){
+                if(dataValidator.checkIfNumber(rawDataArray[rawC])){
                     arraySize++;
                     tempArraySizeIncrease++;
                 }else {
@@ -36,6 +37,7 @@ public class CustomDataParser implements DataParser {
                     isGoodLine = false;
                     break;
                 }
+                rawC++;
             }
             if(isGoodLine){
                 goodLinesList.add(lineCounter);
@@ -51,8 +53,9 @@ public class CustomDataParser implements DataParser {
         int extractorLineCounter = 0;
         while (tempCounter1<list.size()){
             line = list.get(tempCounter1);
-            for(int o : goodLinesList){
-                if(extractorLineCounter == o){
+            int rawC =0;
+            while (rawC < goodLinesList.size()){
+                if(extractorLineCounter == goodLinesList.get(rawC)){
                     rawDataArray = line.split(";");
                     for (String a : rawDataArray){
                         array.setNumber(tempCounter,Float.parseFloat(a));
@@ -60,6 +63,7 @@ public class CustomDataParser implements DataParser {
                     }
                     break;
                 }
+                rawC++;
             }
             tempCounter1++;
             extractorLineCounter++;
